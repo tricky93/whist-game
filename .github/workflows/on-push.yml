@@ -1,7 +1,7 @@
 name: on-push-action
 on: [push]
 jobs:
-  check-bats-version:
+  yarn-install:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -9,4 +9,5 @@ jobs:
         with:
           node-version: '14'
       - run: yarn install
+  yarn-test:
       - run: yarn test
