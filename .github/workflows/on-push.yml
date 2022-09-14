@@ -1,13 +1,15 @@
 name: on-push-action
 on: [push]
 jobs:
-  yarn-install:
+  tests:
     runs-on: ubuntu-latest
     steps:
+      - name: install yarn
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: yarn install
-  yarn-test:
+
+      - name: yarn tests
       - run: yarn test
