@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from './src/components/home/home';
-import DetailsScreen from './src/components/details/details';
+import GameScreen from './src/components/game/game';
 import SettingsScreen from './src/components/settings/settings';
 import RulesScreen from './src/components/rules/rules';
 
@@ -24,10 +24,10 @@ function App() {
           }}
         />
         <Tab.Screen
-          name="Details"
-          component={DetailsScreen}
+          name="Game"
+          component={GameScreen}
           options={{
-            tabBarLabel: 'Details',
+            tabBarLabel: 'Game',
             tabBarIcon: ({color}) => (
               <MaterialCommunityIcons name="skull" color={color} size={26} />
             ),
