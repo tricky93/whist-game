@@ -1,26 +1,63 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from './src/components/home/home';
 import DetailsScreen from './src/components/details/details';
 import SettingsScreen from './src/components/settings/settings';
 import RulesScreen from './src/components/rules/rules';
 
-const Stack = createNativeStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <Tab.Navigator>
+        <Tab.Screen
           name="Home"
           component={HomeScreen}
-          options={{title: 'Overview'}}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({color}) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
         />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="Settings" component={SettingsScreen} />
-        <Stack.Screen name="Rules" component={RulesScreen} />
-      </Stack.Navigator>
+        <Tab.Screen
+          name="Details"
+          component={DetailsScreen}
+          options={{
+            tabBarLabel: 'Details',
+            tabBarIcon: ({color}) => (
+              <MaterialCommunityIcons name="skull" color={color} size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Rules"
+          component={RulesScreen}
+          options={{
+            tabBarLabel: 'Rules',
+            tabBarIcon: ({color}) => (
+              <MaterialCommunityIcons
+                name="robot-angry"
+                color={color}
+                size={26}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{
+            tabBarLabel: 'Settings',
+            tabBarIcon: ({color}) => (
+              <MaterialCommunityIcons name="cogs" color={color} size={26} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
